@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERSALT - Internet Fibra Óptica en Pichanal</title>
+    <style>
+        :root {
+            --primario: #007bff; 
+            --oscuro: #121212;
+            --gris-claro: #f8f9fa;
+        }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; line-height: 1.6; color: #333; }
+        
+        header { background: var(--oscuro); color: white; padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid var(--primario); }
+        .logo { font-size: 1.8rem; font-weight: 800; letter-spacing: 1px; }
+        .logo span { color: var(--primario); }
+        
+        .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1551703599-6b3e8379aa8b?auto=format&fit=crop&w=1350&q=80'); 
+                height: 65vh; background-size: cover; background-position: center; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
+        
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; text-transform: uppercase; }
+        .hero p { font-size: 1.2rem; max-width: 600px; margin-bottom: 25px; }
+        
+        .planes { padding: 60px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; background: var(--gris-claro); }
+        .plan-card { background: white; padding: 40 -px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; position: relative; overflow: hidden; padding: 40px; }
+        .plan-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .plan-card h3 { font-size: 1.5rem; color: var(--oscuro); margin-bottom: 20px; }
+        .megas { font-size: 3rem; font-weight: 900; color: var(--primario); }
+        
+        .btn-ws { background: #25d366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: bold; margin-top: 20px; transition: 0.3s; }
+        .btn-ws:hover { background: #128c7e; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4); }
+        
+        footer { background: var(--oscuro); color: #888; text-align: center; padding: 40px 20px; border-top: 1px solid #333; }
+        footer strong { color: white; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">INTER<span>SALT</span></div>
+</header>
+
+<section class="hero">
+    <h1>Máxima Velocidad</h1>
+    <p>Conectamos a las familias y empresas de Pichanal con la mejor tecnología en Fibra Óptica.</p>
+</section>
+
+<section class="planes">
+    <div class="plan-card">
+        <h3>Plan Inicial</h3>
+        <div class="megas">50 MB</div>
+        <p>Ideal para redes y música</p>
+        <a href="https://wa.me/5493878351649?text=Hola%20InterSalt,%20quiero%20consultar%20por%20el%20Plan%2050MB" target="_blank" class="btn-ws">Consultar por WhatsApp</a>
+    </div>
+    
+    <div class="plan-card" style="border: 2px solid var(--primario);">
+        <div style="background:var(--primario); color:white; position:absolute; top:0; left:0; width:100%; padding:5px 0; font-size:0.8rem; font-weight:bold;">RECOMENDADO</div>
+        <h3>Plan Familiar</h3>
+        <div class="megas">100 MB</div>
+        <p>Streaming 4K y Juegos Online</p>
+        <a href="https://wa.me/5493878351649?text=Hola%20InterSalt,%20quiero%20el%20Plan%20Familiar%20de%20100MB" target="_blank" class="btn-ws">Contratar Ahora</a>
+    </div>
+    
+    <div class="plan-card">
+        <h3>Plan Empresas</h3>
+        <div class="megas">300 MB</div>
+        <p>Conexión simétrica y prioritaria</p>
+        <a href="https://wa.me/5493878351649?text=Hola%20InterSalt,%20busco%20un%20servicio%20corporativo%20de%20300MB" target="_blank" class="btn-ws">Hablar con Ventas</a>
+    </div>
+</section>
+
+<footer>
+    <p><strong>INTERSALT</strong> - Servicios de Internet de Alta Velocidad.<br>
+    Pichanal, Salta, Argentina. <br>
+    © 2026 Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
