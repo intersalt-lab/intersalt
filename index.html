@@ -3,118 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INTERSALT - Registro de Instalación</title>
+    <title>INTERSALT - Internet Fibra Óptica en Pichanal</title>
     <style>
         :root {
             --primario: #007bff; 
             --oscuro: #121212;
             --gris-claro: #f8f9fa;
+            --mercadopago: #009ee3;
             --verde: #25d366;
         }
         body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; line-height: 1.6; color: #333; background-color: var(--gris-claro); }
         
-        header { background: var(--oscuro); color: white; padding: 1.5rem 5%; text-align: center; border-bottom: 4px solid var(--primario); }
-        .logo { font-size: 2rem; font-weight: 800; letter-spacing: 2px; }
+        header { background: var(--oscuro); color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid var(--primario); }
+        .logo { font-size: 1.8rem; font-weight: 800; }
         .logo span { color: var(--primario); }
         
-        .container { max-width: 600px; margin: 30px auto; padding: 20px; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1551703599-6b3e8379aa8b?auto=format&fit=crop&w=1350&q=80'); 
+                height: 40vh; background-size: cover; background-position: center; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
         
-        .formulario-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .formulario-card h2 { text-align: center; color: var(--oscuro); margin-bottom: 25px; border-bottom: 2px solid var(--primario); padding-bottom: 10px; }
-        
-        .campo { margin-bottom: 20px; }
-        .campo label { display: block; font-weight: bold; margin-bottom: 8px; color: #555; }
-        .campo input, .campo select { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 10px; box-sizing: border-box; font-size: 1rem; transition: 0.3s; }
-        .campo input:focus { border-color: var(--primario); outline: none; box-shadow: 0 0 8px rgba(0,123,255,0.2); }
-        
-        .btn-enviar { background: var(--verde); color: white; border: none; width: 100%; padding: 18px; border-radius: 10px; font-weight: bold; font-size: 1.2rem; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
-        .btn-enviar:hover { background: #1ebd5b; transform: translateY(-2px); }
+        .instalacion-banner { background: #fff3cd; color: #856404; text-align: center; padding: 15px; font-weight: bold; border-bottom: 1px solid #ffeeba; font-size: 1.1rem; }
 
-        .info-pago { background: #fff3cd; color: #856404; padding: 15px; border-radius: 10px; text-align: center; margin-bottom: 20px; font-weight: bold; }
+        .seccion-pago { background: #eef2f7; padding: 30px 5%; text-align: center; }
+        .pago-card { background: white; max-width: 400px; margin: 0 auto; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 5px solid var(--mercadopago); }
+        .btn-pago { background: var(--mercadopago); color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; display: inline-block; font-weight: bold; margin-top: 10px; width: 80%; }
+
+        .planes { padding: 50px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; background: white; }
+        .plan-card { background: var(--gris-claro); padding: 30px; border-radius: 20px; text-align: center; border: 1px solid #ddd; transition: 0.3s; }
+        .plan-card:hover { border-color: var(--primario); transform: translateY(-5px); }
+        .megas { font-size: 2.2rem; font-weight: 900; color: var(--primario); }
+        .precio-abono { font-size: 1.8rem; font-weight: bold; margin: 10px 0; }
+
+        .seccion-registro { padding: 50px 5%; background: #f0f2f5; }
+        .formulario-card { background: white; max-width: 550px; margin: 0 auto; padding: 35px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .formulario-card h2 { text-align: center; margin-bottom: 25px; color: var(--oscuro); }
         
-        footer { text-align: center; padding: 30px; color: #888; font-size: 0.9rem; }
+        .campo { margin-bottom: 15px; text-align: left; }
+        .campo label { display: block; font-weight: bold; margin-bottom: 5px; }
+        .campo input, .campo select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
+        
+        .btn-enviar { background: var(--verde); color: white; border: none; width: 100%; padding: 15px; border-radius: 8px; font-weight: bold; font-size: 1.1rem; cursor: pointer; margin-top: 10px; }
+
+        footer { background: var(--oscuro); color: #888; text-align: center; padding: 40px 20px; }
     </style>
 </head>
 <body>
 
 <header>
     <div class="logo">INTER<span>SALT</span></div>
+    <div style="font-size: 0.9rem;">📍 Pichanal, Salta</div>
 </header>
 
-<div class="container">
-    <div class="info-pago">
-        📍 Pichanal, Salta <br>
-        Costo de Instalación: $149.000
-    </div>
+<div class="instalacion-banner">
+    🚀 Instalación Bonificada: $149.000 (Único Pago)
+</div>
 
+<section class="hero">
+    <h1>INTERSALT</h1>
+    <p>Conectividad de Fibra Óptica para tu hogar y empresa.</p>
+</section>
+
+<section class="seccion-pago">
+    <div class="pago-card">
+        <h3>💰 Centro de Pagos</h3>
+        <p>¿Ya sos cliente? Pagá tu abono acá:</p>
+        <a href="https://link.mercadopago.com.ar/TU_USUARIO" target="_blank" class="btn-pago">PAGAR FACTURA</a>
+    </div>
+</section>
+
+<section class="planes">
+    <div class="plan-card">
+        <h3>Plan Inicial</h3>
+        <div class="megas">50 MB</div>
+        <div class="precio-abono">$31.900 <span>/mes</span></div>
+        <p>Ideal para Redes y Música</p>
+    </div>
+    
+    <div class="plan-card" style="border: 2px solid var(--primario);">
+        <h3 style="color:var(--primario)">Plan Familiar</h3>
+        <div class="megas">100 MB</div>
+        <div class="precio-abono">$38.000 <span>/mes</span></div>
+        <p>Streaming 4K y Juegos</p>
+    </div>
+    
+    <div class="plan-card">
+        <h3>Plan Empresas</h3>
+        <div class="megas">300 MB</div>
+        <div class="precio-abono">$56.000 <span>/mes</span></div>
+        <p>Máximo Rendimiento</p>
+    </div>
+</section>
+
+<section class="seccion-registro">
     <div class="formulario-card">
-        <h2>📝 Solicitud de Servicio</h2>
+        <h2>📝 Pedir Instalación</h2>
         <form id="formRegistro">
             <div class="campo">
                 <label>Nombre y Apellido:</label>
-                <input type="text" id="nombre" placeholder="Nombre completo" required>
+                <input type="text" id="nombre" required>
             </div>
-
             <div class="campo">
                 <label>DNI:</label>
-                <input type="number" id="dni" placeholder="Sin puntos" required>
+                <input type="number" id="dni" required>
             </div>
-
             <div class="campo">
-                <label>Teléfono de Contacto:</label>
-                <input type="tel" id="tel_alternativo" placeholder="Ej: 3878XXXXXX" required>
+                <label>Teléfono:</label>
+                <input type="tel" id="tel" required>
             </div>
-
             <div class="campo">
-                <label>Dirección / Barrio / Manzana:</label>
-                <input type="text" id="direccion" placeholder="Ej: B° Centro, Calle Falsa 123" required>
+                <label>Dirección/Barrio:</label>
+                <input type="text" id="direccion" required>
             </div>
-
             <div class="campo">
-                <label>Plan Elegido:</label>
+                <label>Plan:</label>
                 <select id="plan">
-                    <option value="Plan Inicial 50MB ($31.900)">Plan Inicial 50 MB - $31.900/mes</option>
-                    <option value="Plan Familiar 100MB ($38.000)">Plan Familiar 100 MB - $38.000/mes</option>
-                    <option value="Plan Empresas 300MB ($56.000)">Plan Empresas 300 MB - $56.000/mes</option>
+                    <option value="50MB ($31.900)">50 MB - $31.900</option>
+                    <option value="100MB ($38.000)" selected>100 MB - $38.000</option>
+                    <option value="300MB ($56.000)">300 MB - $56.000</option>
                 </select>
             </div>
-
-            <button type="button" class="btn-enviar" onclick="enviarRegistro()">ENVIAR POR WHATSAPP</button>
+            <button type="button" class="btn-enviar" onclick="enviarRegistro()">SOLICITAR AL WHATSAPP</button>
         </form>
     </div>
-</div>
+</section>
 
 <footer>
-    <strong>INTERSALT ISP</strong><br>
-    Pichanal, Salta | Conectando el futuro.
+    <p><strong>INTERSALT ISP</strong><br>
+    Pichanal, Salta - Argentina.<br>
+    © 2026 Todos los derechos reservados.</p>
 </footer>
 
 <script>
     function enviarRegistro() {
-        const nombre = document.getElementById('nombre').value;
-        const dni = document.getElementById('dni').value;
-        const tel = document.getElementById('tel_alternativo').value;
-        const direccion = document.getElementById('direccion').value;
-        const plan = document.getElementById('plan').value;
-        const mi_ws = "5493878351649"; 
-
-        if(!nombre || !dni || !tel || !direccion) {
-            alert("Por favor, completá todos los campos para continuar.");
-            return;
-        }
-
-        const mensaje = `*SOLICITUD DE INSTALACIÓN - INTERSALT*%0A` +
-                        `--------------------------------%0A` +
-                        `👤 *Nombre:* ${nombre}%0A` +
-                        `🆔 *DNI:* ${dni}%0A` +
-                        `📞 *Teléfono:* ${tel}%0A` +
-                        `📍 *Dirección:* ${direccion}%0A` +
-                        `🌐 *Plan:* ${plan}%0A` +
-                        `--------------------------------%0A` +
-                        `_Enviado desde la web oficial de InterSalt_`;
+        const n = document.getElementById('nombre').value;
+        const d = document.getElementById('dni').value;
+        const t = document.getElementById('tel').value;
+        const dir = document.getElementById('direccion').value;
+        const p = document.getElementById('plan').value;
         
-        const url = `https://wa.me/${mi_ws}?text=${mensaje}`;
-        window.open(url, '_blank');
+        if(!n || !d || !t || !dir) { alert("Completá todos los datos"); return; }
+
+        const msg = `*NUEVO PEDIDO DE INSTALACIÓN*%0A👤 *Nombre:* ${n}%0A🆔 *DNI:* ${d}%0A📞 *Tel:* ${t}%0A📍 *Dirección:* ${dir}%0A🌐 *Plan:* ${p}`;
+        window.open(`https://wa.me/5493878351649?text=${msg}`, '_blank');
     }
 </script>
 
