@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INTERSALT - Portal del Cliente</title>
+    <title>INTERSALT - Fibra Óptica</title>
     <style>
         :root {
             --primario: #007bff; 
@@ -13,148 +13,158 @@
             --verde: #25d366;
         }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; line-height: 1.6; color: #333; background-color: var(--gris-claro); }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background-color: var(--gris-claro); }
         
-        header { background: var(--oscuro); color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid var(--primario); }
+        /* FLASH PUBLICITARIO (MARQUESINA) */
+        .flash-publicidad {
+            background: var(--primario);
+            color: white;
+            white-space: nowrap;
+            overflow: hidden;
+            padding: 10px 0;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            border-bottom: 2px solid gold;
+        }
+        .flash-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 15s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        header { 
+            background: var(--oscuro); 
+            color: white; 
+            padding: 1rem 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
         .logo { font-size: 1.5rem; font-weight: 800; }
         .logo span { color: var(--primario); }
         
-        .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1551703599-6b3e8379aa8b?auto=format&fit=crop&w=1350&q=80'); 
-                height: 25vh; background-size: cover; background-position: center; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
+        /* BOTÓN DE PAGO DISCRETO EN EL MENÚ */
+        .btn-pago-discreto {
+            background: var(--mercadopago);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
 
-        .seccion-pago { padding: 30px 5%; background: #eef2f7; text-align: center; }
-        .pago-card { background: white; max-width: 450px; margin: 0 auto; padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-top: 6px solid var(--mercadopago); }
-        
-        .dato-pago { background: #f1f1f1; padding: 10px; border-radius: 10px; margin: 10px 0; border: 1px dashed #ccc; display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-size: 0.9rem; }
-        .btn-copy { background: #666; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 0.7rem; }
-        
-        .btn-comprobante { background: var(--verde); color: white; width: 100%; padding: 12px; border-radius: 8px; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 10px; font-size: 0.9rem; }
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1350&q=80'); 
+            height: 30vh; 
+            background-size: cover; 
+            background-position: center; 
+            color: white; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+        }
 
         .planes { padding: 40px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; background: white; }
-        .plan-card { background: var(--gris-claro); padding: 25px; border-radius: 20px; text-align: center; border: 1px solid #ddd; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s; }
+        .plan-card { background: var(--gris-claro); padding: 25px; border-radius: 20px; text-align: center; border: 1px solid #ddd; transition: 0.3s; }
         .plan-card:hover { border-color: var(--primario); transform: translateY(-5px); }
-        .megas { font-size: 2.2rem; font-weight: 900; color: var(--primario); margin: 10px 0; }
-        .precio-abono { font-size: 1.8rem; font-weight: bold; color: #333; }
-        .desc { font-size: 0.9rem; color: #666; margin-bottom: 15px; min-height: 50px; }
+        .megas { font-size: 2.2rem; font-weight: 900; color: var(--primario); }
+        .precio-abono { font-size: 1.8rem; font-weight: bold; margin: 10px 0; }
 
-        .btn-solicitar { background: var(--primario); color: white; padding: 10px; border-radius: 8px; font-weight: bold; border: none; cursor: pointer; width: 100%; }
-
-        .seccion-registro { padding: 50px 5%; background: #f0f2f5; }
+        .seccion-registro { padding: 40px 5%; background: #f0f2f5; }
         .formulario-card { background: white; max-width: 500px; margin: 0 auto; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .campo { margin-bottom: 12px; text-align: left; }
-        .campo label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 0.9rem; }
-        .campo input, .campo select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
-
-        footer { background: var(--oscuro); color: #888; text-align: center; padding: 30px; }
+        
+        /* SECCION PAGO AL FINAL (NO INVASIVA) */
+        .footer-pago { background: #eef2f7; padding: 20px; text-align: center; border-top: 1px solid #ddd; }
+        .dato-pago { background: #fff; padding: 10px; border-radius: 10px; margin: 5px auto; border: 1px dashed #ccc; max-width: 300px; font-family: monospace; font-size: 0.8rem; display: flex; justify-content: space-between; align-items: center; }
+        
+        footer { background: var(--oscuro); color: #888; text-align: center; padding: 30px; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
+<div class="flash-publicidad">
+    <div class="flash-content">
+        🚀 INTERSALT FIBRA ÓPTICA - ALTA VELOCIDAD EN PICHANAL - CONECTANDO TU HOGAR - SOPORTE TÉCNICO LOCAL - 🌐
+    </div>
+</div>
+
 <header>
     <div class="logo">INTER<span>SALT</span></div>
-    <div style="font-size: 0.8rem;">Pichanal, Salta</div>
+    <a href="#pago-final" class="btn-pago-discreto">💳 PAGAR MI ABONO</a>
 </header>
 
 <section class="hero">
-    <h1>Portal InterSalt</h1>
-    <p>Gestioná tu servicio y solicitá instalaciones.</p>
-</section>
-
-<section class="seccion-pago">
-    <div class="pago-card">
-        <h3 style="color: var(--mercadopago); margin-bottom: 5px;">💰 Pagá tu Abono</h3>
-        <p style="margin-top:0; font-size: 0.9rem;">Transferí por Mercado Pago:</p>
-        
-        <div class="dato-pago"><span id="aT">intersalt</span> <button class="btn-copy" onclick="c('aT', 'Alias')">COPIAR ALIAS</button></div>
-        <div class="dato-pago"><span id="cT">0000003100091686570561</span> <button class="btn-copy" onclick="c('cT', 'CVU')">COPIAR CVU</button></div>
-        
-        <a href="https://wa.me/5493878351649?text=Hola%20InterSalt!%20👋%20Ya%20realicé%20la%20transferencia.%20Adjunto%20el%20comprobante." target="_blank" class="btn-comprobante">✅ ENVIAR COMPROBANTE</a>
-    </div>
+    <h1>Conectividad Real</h1>
+    <p>Fibra Óptica Directa al Hogar en Pichanal.</p>
 </section>
 
 <section class="planes">
     <div class="plan-card">
-        <div>
-            <h3>Plan Esencial</h3>
-            <div class="megas">50 MB</div>
-            <div class="precio-abono">$31.900 <span>/mes</span></div>
-            <p class="desc">Ideal para redes sociales y música. ¡Conexión estable!</p>
-        </div>
-        <button class="btn-solicitar" onclick="s('50MB ($31.900)')">SOLICITAR INSTALACIÓN</button>
+        <h3>Inicial</h3>
+        <div class="megas">50 MB</div>
+        <div class="precio-abono">$31.900</div>
+        <button class="btn-pago-discreto" style="background:var(--primario); font-size:1rem; width:100%; border:none; cursor:pointer;" onclick="s('50MB')">SOLICITAR</button>
     </div>
-    
     <div class="plan-card" style="border: 2px solid var(--primario);">
-        <div>
-            <h3 style="color:var(--primario)">Plan Familiar</h3>
-            <div class="megas">100 MB</div>
-            <div class="precio-abono">$38.000 <span>/mes</span></div>
-            <p class="desc">Perfecto para Netflix 4K y juegos online. El más elegido.</p>
-        </div>
-        <button class="btn-solicitar" onclick="s('100MB ($38.000)')">SOLICITAR INSTALACIÓN</button>
+        <h3 style="color:var(--primario)">Familiar</h3>
+        <div class="megas">100 MB</div>
+        <div class="precio-abono">$38.000</div>
+        <button class="btn-pago-discreto" style="background:var(--primario); font-size:1rem; width:100%; border:none; cursor:pointer;" onclick="s('100MB')">SOLICITAR</button>
     </div>
-    
     <div class="plan-card">
-        <div>
-            <h3>Plan Ultra</h3>
-            <div class="megas">300 MB</div>
-            <div class="precio-abono">$56.000 <span>/mes</span></div>
-            <p class="desc">Máxima potencia para empresas o usuarios exigentes.</p>
-        </div>
-        <button class="btn-solicitar" onclick="s('300MB ($56.000)')">SOLICITAR INSTALACIÓN</button>
+        <h3>Ultra</h3>
+        <div class="megas">300 MB</div>
+        <div class="precio-abono">$56.000</div>
+        <button class="btn-pago-discreto" style="background:var(--primario); font-size:1rem; width:100%; border:none; cursor:pointer;" onclick="s('300MB')">SOLICITAR</button>
     </div>
 </section>
 
-<section class="seccion-registro" id="registro-ancla">
+<section class="seccion-registro" id="registro">
     <div class="formulario-card">
-        <h2 style="text-align:center">📝 Registro de Instalación</h2>
-        <form id="fR">
-            <div class="campo"><label>Nombre:</label><input type="text" id="n" required></div>
-            <div class="campo"><label>DNI:</label><input type="number" id="d" required></div>
-            <div class="campo"><label>Teléfono:</label><input type="tel" id="t" required></div>
-            <div class="campo"><label>Dirección:</label><input type="text" id="dir" required></div>
-            <div class="campo">
-                <label>Plan:</label>
-                <select id="p">
-                    <option value="50MB ($31.900)">50 MB - $31.900</option>
-                    <option value="100MB ($38.000)">100 MB - $38.000</option>
-                    <option value="300MB ($56.000)">300 MB - $56.000</option>
-                </select>
-            </div>
-            <button type="button" class="btn-solicitar" style="background:var(--verde); font-size:1.1rem; padding:15px;" onclick="enviar()">PEDIR INSTALACIÓN</button>
+        <h2 style="text-align:center">📝 Pedir Instalación</h2>
+        <form>
+            <input type="text" id="n" placeholder="Nombre completo" style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc;">
+            <input type="number" id="d" placeholder="DNI" style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc;">
+            <input type="tel" id="t" placeholder="Teléfono" style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc;">
+            <input type="text" id="dir" placeholder="Dirección" style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc;">
+            <select id="p" style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc;">
+                <option value="50MB">50 MB - $31.900</option>
+                <option value="100MB">100 MB - $38.000</option>
+                <option value="300MB">300 MB - $56.000</option>
+            </select>
+            <button type="button" onclick="enviar()" style="width:100%; padding:15px; background:var(--verde); color:white; border:none; border-radius:5px; font-weight:bold; cursor:pointer;">ENVIAR SOLICITUD</button>
         </form>
     </div>
 </section>
 
+<section class="footer-pago" id="pago-final">
+    <h4>💳 Datos de Pago</h4>
+    <div class="dato-pago"><span>intersalt</span> <button onclick="c('intersalt')">Copiar Alias</button></div>
+    <div class="dato-pago"><span>0000003100091686570561</span> <button onclick="c('0000003100091686570561')">Copiar CVU</button></div>
+    <a href="https://wa.me/5493878351649?text=Hola!%20Envio%20mi%20comprobante." target="_blank" style="color:var(--verde); font-weight:bold; text-decoration:none; display:block; margin-top:10px;">✅ Enviar comprobante de pago</a>
+</section>
+
 <footer>
-    <strong>INTERSALT ISP</strong> | Pichanal, Salta<br>© 2026
+    <strong>INTERSALT ISP</strong> | Pichanal, Salta - 2026
 </footer>
 
 <script>
-    const w = "5493878351649";
-
-    function c(id, n) {
-        const t = document.getElementById(id).innerText;
-        navigator.clipboard.writeText(t);
-        alert(n + " copiado.");
-    }
-
-    function s(plan) {
-        document.getElementById('p').value = plan;
-        document.getElementById('registro-ancla').scrollIntoView();
-        document.getElementById('n').focus();
-    }
-
+    function c(t) { navigator.clipboard.writeText(t); alert("Copiado!"); }
+    function s(plan) { document.getElementById('p').value = plan; document.getElementById('registro').scrollIntoView(); }
     function enviar() {
-        const nombre = document.getElementById('n').value;
-        const dni = document.getElementById('d').value;
-        const tel = document.getElementById('t').value;
-        const dir = document.getElementById('dir').value;
-        const plan = document.getElementById('p').value;
-        
-        if(!nombre || !dni || !tel || !dir) { alert("Completá todos los datos."); return; }
-
-        const msg = `*NUEVA INSTALACIÓN*%0A👤 *Nombre:* ${nombre}%0A🆔 *DNI:* ${dni}%0A📞 *Tel:* ${tel}%0A📍 *Dirección:* ${dir}%0A🌐 *Plan:* ${plan}`;
-        window.open(`https://wa.me/${w}?text=${msg}`, '_blank');
+        const msg = `*INTERSALT*%0ANombre: ${document.getElementById('n').value}%0ADNI: ${document.getElementById('d').value}%0ADirección: ${document.getElementById('dir').value}%0APlan: ${document.getElementById('p').value}`;
+        window.open(`https://wa.me/5493878351649?text=${msg}`);
     }
 </script>
 
