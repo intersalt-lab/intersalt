@@ -20,19 +20,24 @@
         .logo span { color: var(--primario); }
         
         .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1551703599-6b3e8379aa8b?auto=format&fit=crop&w=1350&q=80'); 
-                height: 30vh; background-size: cover; background-position: center; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
+                height: 25vh; background-size: cover; background-position: center; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
 
-        /* SECCION PORTAL */
-        .portal-clientes { padding: 40px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card-portal { background: white; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 5px solid var(--primario); }
+        .seccion-pago { padding: 30px 5%; background: #eef2f7; text-align: center; }
+        .pago-card { background: white; max-width: 450px; margin: 0 auto; padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-top: 6px solid var(--mercadopago); }
         
-        .btn-portal { width: 100%; padding: 12px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 15px; font-size: 1rem; color: white; transition: 0.3s; }
-        .bg-azul { background: var(--primario); }
-        .bg-verde { background: var(--verde); }
-        .bg-mp { background: var(--mercadopago); }
-
         .dato-pago { background: #f1f1f1; padding: 10px; border-radius: 10px; margin: 10px 0; border: 1px dashed #ccc; display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-size: 0.9rem; }
-        .btn-copy { background: #666; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.7rem; }
+        .btn-copy { background: #666; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 0.7rem; }
+        
+        .btn-comprobante { background: var(--verde); color: white; width: 100%; padding: 12px; border-radius: 8px; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 10px; font-size: 0.9rem; }
+
+        .planes { padding: 40px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; background: white; }
+        .plan-card { background: var(--gris-claro); padding: 25px; border-radius: 20px; text-align: center; border: 1px solid #ddd; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s; }
+        .plan-card:hover { border-color: var(--primario); transform: translateY(-5px); }
+        .megas { font-size: 2.2rem; font-weight: 900; color: var(--primario); margin: 10px 0; }
+        .precio-abono { font-size: 1.8rem; font-weight: bold; color: #333; }
+        .desc { font-size: 0.9rem; color: #666; margin-bottom: 15px; min-height: 50px; }
+
+        .btn-solicitar { background: var(--primario); color: white; padding: 10px; border-radius: 8px; font-weight: bold; border: none; cursor: pointer; width: 100%; }
 
         .seccion-registro { padding: 50px 5%; background: #f0f2f5; }
         .formulario-card { background: white; max-width: 500px; margin: 0 auto; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
@@ -40,7 +45,7 @@
         .campo label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 0.9rem; }
         .campo input, .campo select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
 
-        footer { background: var(--oscuro); color: #888; text-align: center; padding: 30px; font-size: 0.9rem; }
+        footer { background: var(--oscuro); color: #888; text-align: center; padding: 30px; }
     </style>
 </head>
 <body>
@@ -52,53 +57,70 @@
 
 <section class="hero">
     <h1>Portal InterSalt</h1>
-    <p>Gestioná tu servicio de forma rápida y sencilla.</p>
+    <p>Gestioná tu servicio y solicitá instalaciones.</p>
 </section>
 
-<section class="portal-clientes">
-    
-    <div class="card-portal">
-        <h3>📊 Mi Estado de Cuenta</h3>
-        <p>Consultá tu deuda, vencimientos o solicitá soporte técnico.</p>
-        <div class="campo">
-            <input type="number" id="dni_consulta" placeholder="Ingresá tu DNI">
+<section class="seccion-pago">
+    <div class="pago-card">
+        <h3 style="color: var(--mercadopago); margin-bottom: 5px;">💰 Pagá tu Abono</h3>
+        <p style="margin-top:0; font-size: 0.9rem;">Transferí por Mercado Pago:</p>
+        
+        <div class="dato-pago"><span id="aT">intersalt</span> <button class="btn-copy" onclick="c('aT', 'Alias')">COPIAR ALIAS</button></div>
+        <div class="dato-pago"><span id="cT">0000003100091686570561</span> <button class="btn-copy" onclick="c('cT', 'CVU')">COPIAR CVU</button></div>
+        
+        <a href="https://wa.me/5493878351649?text=Hola%20InterSalt!%20👋%20Ya%20realicé%20la%20transferencia.%20Adjunto%20el%20comprobante." target="_blank" class="btn-comprobante">✅ ENVIAR COMPROBANTE</a>
+    </div>
+</section>
+
+<section class="planes">
+    <div class="plan-card">
+        <div>
+            <h3>Plan Esencial</h3>
+            <div class="megas">50 MB</div>
+            <div class="precio-abono">$31.900 <span>/mes</span></div>
+            <p class="desc">Ideal para redes sociales y música. ¡Conexión estable!</p>
         </div>
-        <button class="btn-portal bg-azul" onclick="consultarCuenta()">CONSULTAR AHORA</button>
+        <button class="btn-solicitar" onclick="s('50MB ($31.900)')">SOLICITAR INSTALACIÓN</button>
     </div>
-
-    <div class="card-portal" style="border-top-color: var(--mercadopago);">
-        <h3>💳 Pagar mi Abono</h3>
-        <p>Copiá los datos y transferí por Mercado Pago.</p>
-        <div class="dato-pago"><span id="aText">intersalt</span> <button class="btn-copy" onclick="copiar('aText')">COPIAR ALIAS</button></div>
-        <div class="dato-pago"><span id="cText">0000003100091686570561</span> <button class="btn-copy" onclick="copiar('cText')">COPIAR CVU</button></div>
-        <p style="font-size: 0.7rem;">Titular: Fidel Vizgarra</p>
+    
+    <div class="plan-card" style="border: 2px solid var(--primario);">
+        <div>
+            <h3 style="color:var(--primario)">Plan Familiar</h3>
+            <div class="megas">100 MB</div>
+            <div class="precio-abono">$38.000 <span>/mes</span></div>
+            <p class="desc">Perfecto para Netflix 4K y juegos online. El más elegido.</p>
+        </div>
+        <button class="btn-solicitar" onclick="s('100MB ($38.000)')">SOLICITAR INSTALACIÓN</button>
     </div>
-
-    <div class="card-portal" style="border-top-color: var(--verde);">
-        <h3>🏠 Nueva Instalación</h3>
-        <p>¿Todavía no tenés InterSalt? Solicitá tu conexión de Fibra Óptica.</p>
-        <button class="btn-portal bg-verde" onclick="document.getElementById('registro-ancla').scrollIntoView()">VER PLANES Y REGISTRO</button>
+    
+    <div class="plan-card">
+        <div>
+            <h3>Plan Ultra</h3>
+            <div class="megas">300 MB</div>
+            <div class="precio-abono">$56.000 <span>/mes</span></div>
+            <p class="desc">Máxima potencia para empresas o usuarios exigentes.</p>
+        </div>
+        <button class="btn-solicitar" onclick="s('300MB ($56.000)')">SOLICITAR INSTALACIÓN</button>
     </div>
-
 </section>
 
 <section class="seccion-registro" id="registro-ancla">
     <div class="formulario-card">
-        <h2 style="text-align:center">📝 Solicitud de Servicio</h2>
-        <form id="formRegistro">
-            <div class="campo"><label>Nombre:</label><input type="text" id="nombre"></div>
-            <div class="campo"><label>DNI:</label><input type="number" id="dni"></div>
-            <div class="campo"><label>Teléfono:</label><input type="tel" id="tel"></div>
-            <div class="campo"><label>Dirección:</label><input type="text" id="direccion"></div>
+        <h2 style="text-align:center">📝 Registro de Instalación</h2>
+        <form id="fR">
+            <div class="campo"><label>Nombre:</label><input type="text" id="n" required></div>
+            <div class="campo"><label>DNI:</label><input type="number" id="d" required></div>
+            <div class="campo"><label>Teléfono:</label><input type="tel" id="t" required></div>
+            <div class="campo"><label>Dirección:</label><input type="text" id="dir" required></div>
             <div class="campo">
                 <label>Plan:</label>
-                <select id="plan">
+                <select id="p">
                     <option value="50MB ($31.900)">50 MB - $31.900</option>
                     <option value="100MB ($38.000)">100 MB - $38.000</option>
                     <option value="300MB ($56.000)">300 MB - $56.000</option>
                 </select>
             </div>
-            <button type="button" class="btn-portal bg-verde" onclick="enviarRegistro()">PEDIR INSTALACIÓN</button>
+            <button type="button" class="btn-solicitar" style="background:var(--verde); font-size:1.1rem; padding:15px;" onclick="enviar()">PEDIR INSTALACIÓN</button>
         </form>
     </div>
 </section>
@@ -108,30 +130,31 @@
 </footer>
 
 <script>
-    const mi_ws = "5493878351649";
+    const w = "5493878351649";
 
-    function copiar(id) {
+    function c(id, n) {
         const t = document.getElementById(id).innerText;
         navigator.clipboard.writeText(t);
-        alert("Copiado: " + t);
+        alert(n + " copiado.");
     }
 
-    function consultarCuenta() {
-        const dni = document.getElementById('dni_consulta').value;
-        if(!dni) { alert("Ingresá tu DNI para consultar."); return; }
-        const msg = `Hola InterSalt! 👋%0AMi DNI es: *${dni}*%0AQuiero consultar mi *estado de cuenta* y fecha de vencimiento.`;
-        window.open(`https://wa.me/${mi_ws}?text=${msg}`, '_blank');
+    function s(plan) {
+        document.getElementById('p').value = plan;
+        document.getElementById('registro-ancla').scrollIntoView();
+        document.getElementById('n').focus();
     }
 
-    function enviarRegistro() {
-        const n = document.getElementById('nombre').value;
-        const d = document.getElementById('dni').value;
-        const t = document.getElementById('tel').value;
-        const dir = document.getElementById('direccion').value;
-        const p = document.getElementById('plan').value;
-        if(!n || !d || !t || !dir) { alert("Completá los datos."); return; }
-        const msg = `*NUEVA INSTALACIÓN*%0A👤 *Nombre:* ${n}%0A🆔 *DNI:* ${d}%0A📞 *Tel:* ${t}%0A📍 *Dir:* ${dir}%0A🌐 *Plan:* ${p}`;
-        window.open(`https://wa.me/${mi_ws}?text=${msg}`, '_blank');
+    function enviar() {
+        const nombre = document.getElementById('n').value;
+        const dni = document.getElementById('d').value;
+        const tel = document.getElementById('t').value;
+        const dir = document.getElementById('dir').value;
+        const plan = document.getElementById('p').value;
+        
+        if(!nombre || !dni || !tel || !dir) { alert("Completá todos los datos."); return; }
+
+        const msg = `*NUEVA INSTALACIÓN*%0A👤 *Nombre:* ${nombre}%0A🆔 *DNI:* ${dni}%0A📞 *Tel:* ${tel}%0A📍 *Dirección:* ${dir}%0A🌐 *Plan:* ${plan}`;
+        window.open(`https://wa.me/${w}?text=${msg}`, '_blank');
     }
 </script>
 
