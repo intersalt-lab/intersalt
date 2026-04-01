@@ -14,8 +14,9 @@
             --amarillo-suave: #fff3cd;
         }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background-color: var(--gris-claro); }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background-color: var(--gris-claro); overflow-x: hidden; }
         
+        /* FLASH PUBLICITARIO */
         .flash-publicidad { background: var(--primario); color: white; white-space: nowrap; overflow: hidden; padding: 10px 0; font-weight: bold; text-transform: uppercase; font-size: 1.1rem; border-bottom: 2px solid gold; }
         .flash-content { display: inline-block; padding-left: 100%; animation: marquee 20s linear infinite; }
         @keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
@@ -23,147 +24,148 @@
         header { background: var(--oscuro); color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 1.5rem; font-weight: 800; }
         .logo span { color: var(--primario); }
-        .btn-pago-discreto { background: var(--mercadopago); color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 0.8rem; border:none; cursor:pointer;}
+        .btn-pago-nav { background: var(--mercadopago); color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 0.8rem; }
 
-        /* SECCION VIDEO TECNICOS */
-        .video-container { position: relative; height: 40vh; overflow: hidden; background: #000; display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
-        .video-container iframe { position: absolute; top: 50%; left: 50%; width: 100vw; height: 100vh; transform: translate(-50%, -50%); pointer-events: none; opacity: 0.6; }
-        .video-overlay { position: relative; z-index: 1; padding: 20px; }
+        /* SECCIÓN HERO (IMAGEN DE ALTO IMPACTO) */
+        .hero-v2 { 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1551703599-6b3e8379aa8b?q=80&w=1500&auto=format&fit=crop'); 
+            height: 40vh; background-size: cover; background-position: center; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; 
+        }
 
-        .planes { padding: 40px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; background: white; }
-        .plan-card { background: var(--gris-claro); border-radius: 20px; text-align: center; border: 1px solid #ddd; overflow: hidden; transition: 0.3s; display: flex; flex-direction: column; }
+        .planes { padding: 40px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; background: white; }
+        .plan-card { background: var(--gris-claro); border-radius: 20px; text-align: center; border: 1px solid #ddd; overflow: hidden; transition: 0.3s; display: flex; flex-direction: column; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .plan-card:hover { border-color: var(--primario); transform: translateY(-5px); }
-        .plan-img { width: 100%; height: 180px; object-fit: cover; }
+        .plan-img { width: 100%; height: 200px; object-fit: cover; background: #eee; }
         .plan-info { padding: 25px; flex-grow: 1; }
         .megas { font-size: 2.5rem; font-weight: 900; color: var(--primario); }
-        .precio-abono { font-size: 2rem; font-weight: bold; color: #333; margin-bottom: 10px; }
+        .precio-abono { font-size: 2rem; font-weight: bold; color: #333; margin: 10px 0; }
         .ventajas { text-align: left; font-size: 0.9rem; color: #555; margin-bottom: 20px; padding: 0; list-style: none; }
-        .ventajas li::before { content: "🚀"; margin-right: 8px; }
+        .ventajas li::before { content: "✔️"; margin-right: 8px; color: var(--verde); }
 
-        .testimonios { padding: 50px 5%; background: #fff; text-align: center; }
-        .testimonio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
-        .test-card { background: var(--gris-claro); padding: 20px; border-radius: 15px; font-style: italic; border-left: 5px solid var(--primario); }
+        .btn-cta { background: var(--primario); color: white; padding: 12px; text-decoration: none; border-radius: 8px; font-weight: bold; border: none; cursor: pointer; width: 100%; font-size: 1rem; }
 
-        .seccion-registro { padding: 40px 5%; background: #f0f2f5; }
+        .seccion-registro { padding: 50px 5%; background: #f0f2f5; }
         .formulario-card { background: white; max-width: 500px; margin: 0 auto; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        
-        .footer-pago { background: #eef2f7; padding: 20px; text-align: center; border-top: 1px solid #ddd; }
-        .dato-pago { background: #fff; padding: 10px; border-radius: 10px; margin: 5px auto; border: 1px dashed #ccc; max-width: 320px; font-family: monospace; display: flex; justify-content: space-between; align-items: center; }
-        
-        footer { background: var(--oscuro); color: #888; text-align: center; padding: 30px; font-size: 0.8rem; }
+        .campo input, .campo select { width: 100%; padding: 12px; margin-bottom: 12px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box; font-size: 1rem; }
+
+        .footer-pago { background: #eef2f7; padding: 30px; text-align: center; border-top: 1px solid #ddd; }
+        .dato-pago { background: #fff; padding: 12px; border-radius: 10px; margin: 10px auto; border: 1px dashed #ccc; max-width: 350px; font-family: monospace; display: flex; justify-content: space-between; align-items: center; }
+        .btn-copy { background: #666; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
+
+        footer { background: var(--oscuro); color: #888; text-align: center; padding: 40px 20px; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
 <div class="flash-publicidad">
     <div class="flash-content">
-        🚀 INTERSALT FIBRA ÓPTICA - ALTA VELOCIDAD - INSTALACIÓN: $149.000 - SOPORTE TÉCNICO LOCAL EN PICHANAL 🌐
+        🚀 INTERSALT FIBRA ÓPTICA - ALTA VELOCIDAD - INSTALACIÓN: $149.000 - SOPORTE TÉCNICO EN PICHANAL - CONECTÁ TU HOGAR HOY 🌐
     </div>
 </div>
 
 <header>
     <div class="logo">INTER<span>SALT</span></div>
-    <a href="#pago-final" class="btn-pago-discreto">💳 PAGAR MI ABONO</a>
+    <a href="#pago-final" class="btn-pago-nav">💳 PAGAR MI ABONO</a>
 </header>
 
-<section class="video-container">
-    <iframe src="https://www.youtube.com/embed/n_WHe_vUvXw?autoplay=1&mute=1&loop=1&playlist=n_WHe_vUvXw&controls=0" frameborder="0"></iframe>
-    <div class="video-overlay">
-        <h1>Tecnología de Punta en Pichanal</h1>
-        <p>Nuestro equipo trabaja cada día para brindarte la mejor conexión.</p>
-        <div style="background:var(--amarillo-suave); color:#856404; display:inline-block; padding:5px 15px; border-radius:20px; font-weight:bold;">Instalación: $149.000</div>
+<section class="hero-v2">
+    <h1>Internet que no se corta</h1>
+    <p>Tecnología de Fibra Óptica Directa (FTTH) en Pichanal.</p>
+    <div style="background:var(--amarillo-suave); color:#856404; padding:8px 20px; border-radius:20px; font-weight:bold; margin-top:15px; border: 1px solid #ffeeba;">
+        🛠️ Instalación: $149.000
     </div>
 </section>
 
 <section class="planes">
     <div class="plan-card">
-        <img src="https://images.unsplash.com/photo-1526644948468-38f047ff5821?auto=format&fit=crop&w=500&q=80" alt="Hogar conectado" class="plan-img">
+        <img src="https://images.unsplash.com/photo-1558403194-611308249627?q=80&w=600&auto=format&fit=crop" alt="Hogar conectado" class="plan-img">
         <div class="plan-info">
             <h3>Plan Inicial</h3>
             <div class="megas">50 MB</div>
             <div class="precio-abono">$31.900</div>
             <ul class="ventajas">
-                <li>Fibra Óptica Simétrica</li>
-                <li>Múltiples dispositivos sin cortes</li>
-                <li>WhatsApp y Redes Sociales Volando</li>
+                <li>Estabilidad total en varios equipos</li>
+                <li>Redes Sociales y WhatsApp Full</li>
+                <li>Música y Streaming sin pausas</li>
             </ul>
-            <button class="btn-pago-discreto" style="background:var(--primario); font-size:1rem; width:100%;" onclick="s('50MB')">LO QUIERO</button>
+            <button class="btn-cta" onclick="s('50MB')">LO QUIERO</button>
         </div>
     </div>
 
     <div class="plan-card" style="border: 2px solid var(--primario);">
-        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=500&q=80" alt="Familia feliz" class="plan-img">
+        <img src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?q=80&w=600&auto=format&fit=crop" alt="Familia navegando" class="plan-img">
         <div class="plan-info">
             <h3 style="color:var(--primario)">Plan Familiar</h3>
             <div class="megas">100 MB</div>
             <div class="precio-abono">$38.000</div>
             <ul class="ventajas">
-                <li>Ideal para Netflix y YouTube 4K</li>
-                <li>Juegos Online sin latencia</li>
-                <li>Home Office y Clases Virtuales</li>
+                <li>Perfecto para Netflix y YouTube 4K</li>
+                <li>Juegos Online sin retrasos (Lag)</li>
+                <li>Ideal para Home Office y Clases</li>
             </ul>
-            <button class="btn-pago-discreto" style="background:var(--primario); font-size:1rem; width:100%;" onclick="s('100MB')">LO QUIERO</button>
+            <button class="btn-cta" onclick="s('100MB')">LO QUIERO</button>
         </div>
     </div>
 
     <div class="plan-card">
-        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=500&q=80" alt="Empresa conectada" class="plan-img">
+        <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=600&auto=format&fit=crop" alt="Empresa u oficina" class="plan-img">
         <div class="plan-info">
             <h3>Plan Ultra</h3>
             <div class="megas">300 MB</div>
             <div class="precio-abono">$56.000</div>
             <ul class="ventajas">
-                <li>Potencia Máxima para Empresas</li>
-                <li>Soporte Técnico Prioritario</li>
-                <li>Conectividad sin límites</li>
+                <li>Potencia máxima para Empresas</li>
+                <li>Subida de archivos pesados</li>
+                <li>Soporte técnico prioritario</li>
             </ul>
-            <button class="btn-pago-discreto" style="background:var(--primario); font-size:1rem; width:100%;" onclick="s('300MB')">LO QUIERO</button>
+            <button class="btn-cta" onclick="s('300MB')">LO QUIERO</button>
         </div>
-    </div>
-</section>
-
-<section class="testimonios">
-    <h2>Confianza Local</h2>
-    <div class="testimonio-grid">
-        <div class="test-card">"Desde que puse InterSalt, mis hijos ya no se quejan de que el internet anda lento. Los 100MB son reales." <b>- Roberto, Pichanal</b></div>
-        <div class="test-card">"El servicio técnico es excelente. Se nota que son de acá y se preocupan por el cliente." <b>- Elena, B° Malvinas</b></div>
     </div>
 </section>
 
 <section class="seccion-registro" id="registro">
     <div class="formulario-card">
-        <h2 style="text-align:center;">📝 Solicitá tu Instalación</h2>
+        <h2 style="text-align:center; margin-bottom:5px;">📝 Pedir Instalación</h2>
+        <p style="text-align:center; font-size:0.8rem; color:#666; margin-bottom:20px;">Instalación: $149.000 (Pago único)</p>
         <form>
-            <input type="text" id="n" placeholder="Nombre completo" style="width:100%; padding:12px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc; box-sizing: border-box;">
-            <input type="number" id="d" placeholder="DNI" style="width:100%; padding:12px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc; box-sizing: border-box;">
-            <input type="tel" id="t" placeholder="Celular" style="width:100%; padding:12px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc; box-sizing: border-box;">
-            <input type="text" id="dir" placeholder="Dirección exacta" style="width:100%; padding:12px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc; box-sizing: border-box;">
-            <select id="p" style="width:100%; padding:12px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc;">
-                <option value="50MB">Plan Inicial 50 MB</option>
-                <option value="100MB" selected>Plan Familiar 100 MB</option>
-                <option value="300MB">Plan Ultra 300 MB</option>
+            <input type="text" id="n" placeholder="Nombre completo" required>
+            <input type="number" id="d" placeholder="DNI" required>
+            <input type="tel" id="t" placeholder="Celular de contacto" required>
+            <input type="text" id="dir" placeholder="Dirección / Barrio / Manzana" required>
+            <select id="p">
+                <option value="50MB">Plan Inicial 50 MB - $31.900</option>
+                <option value="100MB" selected>Plan Familiar 100 MB - $38.000</option>
+                <option value="300MB">Plan Ultra 300 MB - $56.000</option>
             </select>
-            <button type="button" onclick="enviar()" style="width:100%; padding:15px; background:var(--verde); color:white; border:none; border-radius:8px; font-weight:bold; cursor:pointer;">ENVIAR SOLICITUD WHATSAPP</button>
+            <button type="button" class="btn-cta" style="background:var(--verde); font-size:1.2rem; padding:15px;" onclick="enviar()">SOLICITAR POR WHATSAPP</button>
         </form>
     </div>
 </section>
 
 <section class="footer-pago" id="pago-final">
-    <h4>💳 Datos de Pago</h4>
-    <div class="dato-pago"><span>Alias: intersalt</span> <button onclick="c('intersalt')">Copiar</button></div>
-    <div class="dato-pago"><span>CVU: 0000003100091686570561</span> <button onclick="c('0000003100091686570561')">Copiar</button></div>
-    <a href="https://wa.me/5493878351649?text=Hola!%20Envio%20mi%20comprobante%20de%20pago." target="_blank" style="color:var(--verde); font-weight:bold; text-decoration:none; display:block; margin-top:10px;">✅ Enviar comprobante de pago</a>
+    <h4>💳 Datos para Abonar Factura</h4>
+    <p style="font-size:0.85rem; color:#666;">Transferí mediante Mercado Pago:</p>
+    <div class="dato-pago"><span>Alias: <b>intersalt</b></span> <button class="btn-copy" onclick="c('intersalt')">COPIAR</button></div>
+    <div class="dato-pago"><span>CVU: <b>0000003100091686570561</b></span> <button class="btn-copy" onclick="c('0000003100091686570561')">COPIAR</button></div>
+    <a href="https://wa.me/5493878351649?text=Hola!%20Envio%20mi%20comprobante%20de%20pago." target="_blank" style="color:var(--verde); font-weight:bold; text-decoration:none; display:block; margin-top:15px;">✅ Clic aquí para enviar comprobante</a>
 </section>
 
 <footer>
-    <strong>INTERSALT ISP</strong> | Pichanal, Salta - 2026
+    <strong>INTERSALT ISP</strong> | Pichanal, Salta - Argentina<br>
+    © 2026 Todos los derechos reservados.
 </footer>
 
 <script>
-    function c(t) { navigator.clipboard.writeText(t); alert("Copiado!"); }
+    function c(t) { navigator.clipboard.writeText(t); alert("Copiado al portapapeles!"); }
     function s(plan) { document.getElementById('p').value = plan; document.getElementById('registro').scrollIntoView(); }
     function enviar() {
-        const msg = `*INTERSALT SOLICITUD*%0ANombre: ${document.getElementById('n').value}%0ADNI: ${document.getElementById('d').value}%0ATel: ${document.getElementById('t').value}%0ADir: ${document.getElementById('dir').value}%0APlan: ${document.getElementById('p').value}`;
+        const nom = document.getElementById('n').value;
+        const dni = document.getElementById('d').value;
+        const tel = document.getElementById('t').value;
+        const dir = document.getElementById('dir').value;
+        const pla = document.getElementById('p').value;
+        if(!nom || !dni || !tel || !dir) { alert("Por favor, completa todos los datos."); return; }
+        const msg = `*INTERSALT - SOLICITUD*%0ANombre: ${nom}%0ADNI: ${dni}%0ATel: ${tel}%0ADir: ${dir}%0APlan: ${pla}%0A_Instalacion: $149.000_`;
         window.open(`https://wa.me/5493878351649?text=${msg}`);
     }
 </script>
