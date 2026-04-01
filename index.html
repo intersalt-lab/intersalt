@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INTERSALT - Fibra Óptica</title>
+    <title>INTERSALT - Fibra Óptica en Pichanal</title>
     <style>
         :root {
             --primario: #007bff; 
@@ -11,11 +11,12 @@
             --gris-claro: #f8f9fa;
             --mercadopago: #009ee3;
             --verde: #25d366;
+            --amarillo-suave: #fff3cd;
         }
         html { scroll-behavior: smooth; }
         body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background-color: var(--gris-claro); }
         
-        /* FLASH PUBLICITARIO (MARQUESINA) */
+        /* FLASH PUBLICITARIO */
         .flash-publicidad {
             background: var(--primario);
             color: white;
@@ -32,26 +33,12 @@
             padding-left: 100%;
             animation: marquee 15s linear infinite;
         }
-        @keyframes marquee {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-100%, 0); }
-        }
+        @keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
 
-        header { 
-            background: var(--oscuro); 
-            color: white; 
-            padding: 1rem 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-        }
+        header { background: var(--oscuro); color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 1.5rem; font-weight: 800; }
         .logo span { color: var(--primario); }
         
-        /* BOTÓN DE PAGO DISCRETO EN EL MENÚ */
         .btn-pago-discreto {
             background: var(--mercadopago);
             color: white;
@@ -64,7 +51,7 @@
 
         .hero { 
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1350&q=80'); 
-            height: 30vh; 
+            height: 35vh; 
             background-size: cover; 
             background-position: center; 
             color: white; 
@@ -73,6 +60,17 @@
             justify-content: center; 
             align-items: center; 
             text-align: center; 
+            padding: 0 20px;
+        }
+        
+        .badge-instalacion {
+            background: var(--amarillo-suave);
+            color: #856404;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 0.9rem;
         }
 
         .planes { padding: 40px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; background: white; }
@@ -84,7 +82,6 @@
         .seccion-registro { padding: 40px 5%; background: #f0f2f5; }
         .formulario-card { background: white; max-width: 500px; margin: 0 auto; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         
-        /* SECCION PAGO AL FINAL (NO INVASIVA) */
         .footer-pago { background: #eef2f7; padding: 20px; text-align: center; border-top: 1px solid #ddd; }
         .dato-pago { background: #fff; padding: 10px; border-radius: 10px; margin: 5px auto; border: 1px dashed #ccc; max-width: 300px; font-family: monospace; font-size: 0.8rem; display: flex; justify-content: space-between; align-items: center; }
         
@@ -95,7 +92,7 @@
 
 <div class="flash-publicidad">
     <div class="flash-content">
-        🚀 INTERSALT FIBRA ÓPTICA - ALTA VELOCIDAD EN PICHANAL - CONECTANDO TU HOGAR - SOPORTE TÉCNICO LOCAL - 🌐
+        🚀 INTERSALT FIBRA ÓPTICA - ALTA VELOCIDAD EN PICHANAL - INSTALACIÓN: $149.000 - SOPORTE TÉCNICO LOCAL - CONECTANDO TU HOGAR 🌐
     </div>
 </div>
 
@@ -105,54 +102,57 @@
 </header>
 
 <section class="hero">
-    <h1>Conectividad Real</h1>
-    <p>Fibra Óptica Directa al Hogar en Pichanal.</p>
+    <h1>Conectividad de Elite</h1>
+    <p>La mejor Fibra Óptica de Pichanal para tu hogar.</p>
+    <div class="badge-instalacion">🛠️ Costo de Instalación: $149.000</div>
 </section>
 
 <section class="planes">
     <div class="plan-card">
-        <h3>Inicial</h3>
+        <h3>Esencial</h3>
         <div class="megas">50 MB</div>
-        <div class="precio-abono">$31.900</div>
+        <div class="precio-abono">$31.900 <span>/mes</span></div>
         <button class="btn-pago-discreto" style="background:var(--primario); font-size:1rem; width:100%; border:none; cursor:pointer;" onclick="s('50MB')">SOLICITAR</button>
     </div>
     <div class="plan-card" style="border: 2px solid var(--primario);">
         <h3 style="color:var(--primario)">Familiar</h3>
         <div class="megas">100 MB</div>
-        <div class="precio-abono">$38.000</div>
+        <div class="precio-abono">$38.000 <span>/mes</span></div>
         <button class="btn-pago-discreto" style="background:var(--primario); font-size:1rem; width:100%; border:none; cursor:pointer;" onclick="s('100MB')">SOLICITAR</button>
     </div>
     <div class="plan-card">
-        <h3>Ultra</h3>
+        <h3>Empresas</h3>
         <div class="megas">300 MB</div>
-        <div class="precio-abono">$56.000</div>
+        <div class="precio-abono">$56.000 <span>/mes</span></div>
         <button class="btn-pago-discreto" style="background:var(--primario); font-size:1rem; width:100%; border:none; cursor:pointer;" onclick="s('300MB')">SOLICITAR</button>
     </div>
 </section>
 
 <section class="seccion-registro" id="registro">
     <div class="formulario-card">
-        <h2 style="text-align:center">📝 Pedir Instalación</h2>
+        <h2 style="text-align:center; margin-bottom:5px;">📝 Pedir Instalación</h2>
+        <p style="text-align:center; font-size:0.8rem; color:#666; margin-bottom:20px;">Costo de instalación fija: $149.000</p>
         <form>
-            <input type="text" id="n" placeholder="Nombre completo" style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc;">
-            <input type="number" id="d" placeholder="DNI" style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc;">
-            <input type="tel" id="t" placeholder="Teléfono" style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc;">
-            <input type="text" id="dir" placeholder="Dirección" style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc;">
-            <select id="p" style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc;">
-                <option value="50MB">50 MB - $31.900</option>
-                <option value="100MB">100 MB - $38.000</option>
-                <option value="300MB">300 MB - $56.000</option>
+            <input type="text" id="n" placeholder="Nombre completo" style="width:100%; padding:12px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc; box-sizing: border-box;">
+            <input type="number" id="d" placeholder="DNI" style="width:100%; padding:12px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc; box-sizing: border-box;">
+            <input type="tel" id="t" placeholder="Teléfono" style="width:100%; padding:12px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc; box-sizing: border-box;">
+            <input type="text" id="dir" placeholder="Dirección / Barrio / Manzana" style="width:100%; padding:12px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc; box-sizing: border-box;">
+            <select id="p" style="width:100%; padding:12px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc; box-sizing: border-box;">
+                <option value="50MB">Plan 50 MB - $31.900</option>
+                <option value="100MB" selected>Plan 100 MB - $38.000</option>
+                <option value="300MB">Plan 300 MB - $56.000</option>
             </select>
-            <button type="button" onclick="enviar()" style="width:100%; padding:15px; background:var(--verde); color:white; border:none; border-radius:5px; font-weight:bold; cursor:pointer;">ENVIAR SOLICITUD</button>
+            <button type="button" onclick="enviar()" style="width:100%; padding:15px; background:var(--verde); color:white; border:none; border-radius:8px; font-weight:bold; cursor:pointer; font-size:1.1rem;">ENVIAR SOLICITUD WHATSAPP</button>
         </form>
     </div>
 </section>
 
 <section class="footer-pago" id="pago-final">
-    <h4>💳 Datos de Pago</h4>
+    <h4>💳 Datos para Abonar Factura</h4>
+    <p style="font-size:0.8rem;">Titular: Fidel Vizgarra (Mercado Pago)</p>
     <div class="dato-pago"><span>intersalt</span> <button onclick="c('intersalt')">Copiar Alias</button></div>
     <div class="dato-pago"><span>0000003100091686570561</span> <button onclick="c('0000003100091686570561')">Copiar CVU</button></div>
-    <a href="https://wa.me/5493878351649?text=Hola!%20Envio%20mi%20comprobante." target="_blank" style="color:var(--verde); font-weight:bold; text-decoration:none; display:block; margin-top:10px;">✅ Enviar comprobante de pago</a>
+    <a href="https://wa.me/5493878351649?text=Hola!%20Envio%20mi%20comprobante." target="_blank" style="color:var(--verde); font-weight:bold; text-decoration:none; display:block; margin-top:10px; font-size:0.9rem;">✅ Clic aquí para enviar comprobante</a>
 </section>
 
 <footer>
@@ -160,10 +160,16 @@
 </footer>
 
 <script>
-    function c(t) { navigator.clipboard.writeText(t); alert("Copiado!"); }
+    function c(t) { navigator.clipboard.writeText(t); alert("Copiado al portapapeles!"); }
     function s(plan) { document.getElementById('p').value = plan; document.getElementById('registro').scrollIntoView(); }
     function enviar() {
-        const msg = `*INTERSALT*%0ANombre: ${document.getElementById('n').value}%0ADNI: ${document.getElementById('d').value}%0ADirección: ${document.getElementById('dir').value}%0APlan: ${document.getElementById('p').value}`;
+        const nom = document.getElementById('n').value;
+        const dni = document.getElementById('d').value;
+        const tel = document.getElementById('t').value;
+        const dir = document.getElementById('dir').value;
+        const pla = document.getElementById('p').value;
+        if(!nom || !dni || !tel || !dir) { alert("Por favor, completa todos los datos."); return; }
+        const msg = `*INTERSALT - NUEVA INSTALACION*%0ANombre: ${nom}%0ADNI: ${dni}%0ATel: ${tel}%0ADir: ${dir}%0APlan: ${pla}%0A_Instalacion: $149.000_`;
         window.open(`https://wa.me/5493878351649?text=${msg}`);
     }
 </script>
